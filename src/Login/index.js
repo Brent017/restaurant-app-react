@@ -42,7 +42,7 @@ class Login extends Component {
 		return (
 			<Grid className='login' textAlign='center' verticalAlign='middle'>
 				<Grid.Column style={{ maxWidth: 450}}>
-					<Header className='title' as='h2' textAlign='center'>
+					<Header className='title' as='h2' style={{ fontSize: '60px' }} textAlign='center'>
 						Menu Finder
 					</Header>
 					<Form onSubmit={this.handleSubmit} >

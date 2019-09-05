@@ -28,19 +28,23 @@ class Register extends Component {
 		data.append('email', this.state.email)
 
 		console.log(data.entries(), '<--data from register');
+		console.log(this.state.username, 'this.state.username after append');
 		for(let pair of data.entries()) {
 			console.log(pair[0], ', ', pair[1], '<--each key value pair from register');
 		}
-
+		console.log(data, '<--data before registerFunction');
 		const registerFunction = this.props.register(data);
 
 		registerFunction.then((data) => {
 			console.log(data, 'data in registerFunction');
+			console.log(this.props.history, 'history in registerFunction');
 			if(data.status.messsage === 'Success') {
 				this.props.history.push('/profile')
 			} else {
-				console.log(data, '<--error message in registerFunction');
+				console.log(data, this.props);
 			}
+		}).catch((err) => {
+			console.log(err, 'Error in handleSubmit login');
 		})
 	} 
 
@@ -51,7 +55,7 @@ class Register extends Component {
 					<Header className='title' style={{ fontSize: '60px' }} as='h2' textAlign='center'>
 						Menu Finder
 					</Header>
-					<Form onsubmit={this.handleSubmit}>
+					<Form onSubmit={this.handleSubmit}>
 						<Segment stacked>
 						Username:
 						<Form.Input fluid icon='user' iconPosition='left' placeholder='username' type='text' name='username' onChange={this.handleChange} />

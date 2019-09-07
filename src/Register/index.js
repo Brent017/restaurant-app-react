@@ -37,14 +37,12 @@ class Register extends Component {
 
 		registerFunction.then((data) => {
 			console.log(data, 'data in registerFunction');
-			console.log(this.props.history, 'history in registerFunction');
-			if(data.status.messsage === 'Success') {
+			if(data.status.message === 'Success') {
+				console.log('HELLOOOO');
 				this.props.history.push('/profile')
 			} else {
-				console.log(data, this.props);
+				console.log(data, '<--should be error message in registerFunction');
 			}
-		}).catch((err) => {
-			console.log(err, 'Error in handleSubmit login');
 		})
 	} 
 

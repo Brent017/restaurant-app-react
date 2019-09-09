@@ -18,6 +18,7 @@ class App extends Component {
     super();
 
     this.state = {
+      id: '',
       username: '',
       password: '',
       email: '',

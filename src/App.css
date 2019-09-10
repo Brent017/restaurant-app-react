@@ -1,6 +1,41 @@
-.title {
+h2 {
   font-family: 'Dancing Script', cursive;
   font-weight: 700;
-  background-color: black;
+  background-color: #262626;
+  color: white;
+  font-size: 60px;
+
 }
+
+h3 {
+  font-family: 'Dancing Script', cursive;
+  font-weight: 700;
+  font-size: 40px;
+  background-color: #262626;
+  color: white;
+  text-decoration: underline;
+  margin: 10px;
+}
+
+h4 {
+  font-family: 'Dancing Script', cursive;
+  font-weight: 700;
+  font-size: 30px; 
+}
+
+h5 {
+  font-family: 'Dancing Script', cursive;
+  font-weight: 700;
+  font-size: 25px;
+  color: aquamarine;
+}
+
+img {
+  float: left;
+  vertical-align: center;
+  background-color: none;
+}
+
+
+
 

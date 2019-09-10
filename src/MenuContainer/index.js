@@ -9,12 +9,13 @@ class MenuContainer extends Component {
 			restaurants: [],
 			isLoaded: false,
 			favorites: [],
-			id: '',
-			name: '',
-			cuisines: '',
-			address: '',
-			menu_url: ''
-
+			data: {
+				id: '',
+				name: '',
+				cuisine: '',
+				address: '',
+				menu_url: ''
+			}
 		}
 	}
 
@@ -24,44 +25,52 @@ class MenuContainer extends Component {
 		})
 	}
 
-	handleCheckboxChange = async (e, data) => {
-		
-		this.setState({
-			name: e.currentTarget.name,
-			id: e.currentTarget.id,
-			cuisines: e.currentTarget.value,
-			address: e.currentTarget.title,
-			menu_url: e.currentTarget.src
-		}, () => {
-			console.log(this.state.name, this.state.id, this.state.cuisines, this.state.address, this.state.menu_url, 'this.state in handleCheckboxChange');
-		})
+	addFavorite = async () => {
 		try {
-			// console.log("SOMETHING");
+			console.log("TRY in POST route");
 			const addFavorite = await fetch('http://localhost:8000/api/v1/', {
 				method: "POST",
-				body: JSON.stringify(data),
+				body: JSON.stringify(this.state.data),
 				credentials: 'include',
 				headers: {
 					'Content-Type': 'application/json'
 				}
 			})
-			console.log(addFavorite.status, "addFavorite status before status");
+			console.log(addFavorite, "addFavorite status before status");
 			if(addFavorite.status !==200) {
 				throw Error('404 from server')
-				console.log(addFavorite.status, 'addFavorite.status after');
+				console.log(addFavorite.status, 'addFavorite.status error');
 			}
 			const addFavoriteResponse = await addFavorite.json();
-			console.log(addFavoriteResponse.data, "Favorites DATA");
+			console.log(addFavoriteResponse, "Favorites DATA");
 			this.setState({
-				favorites: [...addFavorite.data]
+				favorites: {...addFavoriteResponse.data}
 			})
+			console.log(this.state.favorites);
 		} catch(err) {
 			console.log(err, 'addFavorite error');
 			return err
 		}
 	}
 
-	getFavorites = async() => {
+	handleCheckboxChange = async (e) => {
+		
+		this.setState({
+			data: {
+				name: e.currentTarget.name,
+				id: e.currentTarget.id,
+				cuisine: e.currentTarget.value,
+				address: e.currentTarget.title,
+				menu_url: e.currentTarget.src
+			}
+		}, () => {
+			console.log(this.state.data, 'this.state.data in handleCheckboxChange');
+			this.addFavorite()
+		})
+	}
+		
+
+	getFavorites = async () => {
 		try {
 			console.log(this.props, 'props in get');
 			const responseGetFavorites = await fetch('http://localhost:8000/api/v1/' + this.props.userInfo.id)
@@ -101,7 +110,7 @@ class MenuContainer extends Component {
 		return (
 			<main>
 				
-				<tr >
+				<tr>
 					{this.props.restaurants.map(restaurant => (
 					<div>
 						<a className="ui card" href={restaurant.restaurant.menu_url} target="_blank">

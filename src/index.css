@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #262626;
 }
 
 code {
@@ -12,8 +13,4 @@ code {
     monospace;
 }
 
-.title {
-  font-family: 'Dancing Script', cursive;
-  font-weight: 700;
-  background-color: black;
-}
+

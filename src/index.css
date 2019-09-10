@@ -11,3 +11,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.title {
+  font-family: 'Dancing Script', cursive;
+  font-weight: 700;
+  background-color: black;
+}

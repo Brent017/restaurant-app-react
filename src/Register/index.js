@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Button, Grid, Message, Segment, Header, Form } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
+import '../App.css';
+import '../index.css';
 
 class Register extends Component {
 	constructor() {
@@ -50,7 +52,7 @@ class Register extends Component {
 		return (
 			<Grid className='login' textAlign='center' verticalAlign='middle' style={{ height: '100vh'}}>
 				<Grid.Column style={{ maxWidth: 450 }}>
-					<Header className='title' style={{ fontSize: '60px' }} as='h2' textAlign='center'>
+					<Header className='title' style={{ fontSize: '60px', color: 'white' }} as='h2' textAlign='center'>
 						Menu Finder
 					</Header>
 					<Form onSubmit={this.handleSubmit}>

@@ -43,8 +43,9 @@ class Login extends Component {
 		return (
 			<Grid className='login' textAlign='center' verticalAlign='middle'>
 				<Grid.Column style={{ maxWidth: 450}}>
-					<Header className='title' as='h2' style={{ fontSize: '60px', color: 'white' }} textAlign='center'>
-						Menu Finder
+					<Header className='title' textAlign='center'>
+						<img src='http://icons.iconarchive.com/icons/google/noto-emoji-food-drink/256/32447-fork-and-knife-icon.png' alt='fork and knife icon'/>
+						<h2>Menu Finder</h2>
 					</Header>
 					<Form onSubmit={this.handleSubmit} >
 						<Segment stacked>

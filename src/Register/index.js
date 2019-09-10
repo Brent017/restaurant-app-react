@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Button, Grid, Message, Segment, Header, Form } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import '../App.css';
-import '../index.css';
+
 
 class Register extends Component {
 	constructor() {
@@ -51,13 +51,15 @@ class Register extends Component {
 	render() {
 		return (
 			<Grid className='login' textAlign='center' verticalAlign='middle' style={{ height: '100vh'}}>
-				<Grid.Column style={{ maxWidth: 450 }}>
-					<Header className='title' style={{ fontSize: '60px', color: 'white' }} as='h2' textAlign='center'>
-						Menu Finder
+				<Grid.Column style={{ maxWidth: 450, backgroundColor: 'black' }}>
+					<Header className='title' textAlign='center'>
+						<img src='http://icons.iconarchive.com/icons/google/noto-emoji-food-drink/256/32447-fork-and-knife-icon.png' alt='fork and knife icon'/>
+						<h2>Menu Finder</h2>
 					</Header>
+
 					<Form onSubmit={this.handleSubmit}>
-						<Segment stacked>
-						Username:
+						<Segment style={{ backgroundColor: 'grey' }} stacked>
+							<h4>Username:</h4>
 						<Form.Input fluid icon='user' iconPosition='left' placeholder='username' type='text' name='username' onChange={this.handleChange} />
 						Password:
 						<Form.Input fluid icon='lock' iconPosition='left' placeholder='password' type='text' name='password' onChange={this.handleChange} />

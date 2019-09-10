@@ -4,6 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 import Login from './Login';
 import Register from './Register';
 import Profile from './Profile';
+import Logout from './Logout';
 
 const my404 = () => {
   return (
@@ -87,6 +88,7 @@ class App extends Component {
   render() {
     return (
       <main>
+        {this.state.isAuth ? <Logout logout={this.logout} isAuth={this.state.isAuth} /> : null}
         <Switch>
           <Route exact path='/login' render={(props) => <Login {...props} logIn={this.logIn} />} />
           <Route exact path='/register' render={(props) => <Register {...props} register={this.register} />} />

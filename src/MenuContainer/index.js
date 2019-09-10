@@ -24,14 +24,14 @@ class MenuContainer extends Component {
 		})
 	}
 
-	handleCheckboxChange = async (e, favorite) => {
+	handleCheckboxChange = async (e, data) => {
 		
 		this.setState({
 			name: e.currentTarget.name,
 			id: e.currentTarget.id,
 			cuisines: e.currentTarget.value,
 			address: e.currentTarget.title,
-			menu_url: e.currentTarget.alt
+			menu_url: e.currentTarget.src
 		}, () => {
 			console.log(this.state.name, this.state.id, this.state.cuisines, this.state.address, this.state.menu_url, 'this.state in handleCheckboxChange');
 		})
@@ -39,7 +39,7 @@ class MenuContainer extends Component {
 			// console.log("SOMETHING");
 			const addFavorite = await fetch('http://localhost:8000/api/v1/', {
 				method: "POST",
-				body: favorite,
+				body: JSON.stringify(data),
 				credentials: 'include',
 				headers: {
 					'Content-Type': 'application/json'
@@ -116,7 +116,7 @@ class MenuContainer extends Component {
 									name={restaurant.restaurant.name} 
 									value={restaurant.restaurant.cuisines} 
 									title={restaurant.restaurant.location.address} 
-									alt={restaurant.restaurant.menu_url}
+									src={restaurant.restaurant.menu_url}
 								/>Add to Favorites						
   							</div>
 						</a>

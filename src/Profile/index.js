@@ -63,8 +63,8 @@ class Profile extends Component {
 		return (
 			<Grid stackable columns={3} padded className='Profile'>
 				<Grid.Row>
-					<Grid.Column style={{ fontSize: '25px', margin: '10px' }} width={4}>
-						Welcome {this.props.userInfo.username}!<br/>Search Restaurants:
+					<Grid.Column style={{ fontSize: '25px', margin: '10px', padding: '5px' }} width={4}>
+						Welcome {this.props.userInfo.username}!<br/><br/>Search Restaurants:
 					</Grid.Column>
 					<Grid.Column width={6}>
 						<div class="ui action input">

@@ -51,7 +51,7 @@ class Register extends Component {
 	render() {
 		return (
 			<Grid className='login' textAlign='center' verticalAlign='middle' style={{ height: '100vh'}}>
-				<Grid.Column style={{ maxWidth: 450, backgroundColor: 'black' }}>
+				<Grid.Column style={{ maxWidth: 450, backgroundColor: 'aquamarine' }}>
 					<Header className='title' textAlign='center'>
 						<img src='http://icons.iconarchive.com/icons/google/noto-emoji-food-drink/256/32447-fork-and-knife-icon.png' alt='fork and knife icon'/>
 						<h2>Menu Finder</h2>
@@ -59,15 +59,17 @@ class Register extends Component {
 
 					<Form onSubmit={this.handleSubmit}>
 						<Segment style={{ backgroundColor: 'grey' }} stacked>
-							<h4>Username:</h4>
+							<h3 style={{ backgroundColor: 'grey', color: 'black' }}>Username:</h3>
 						<Form.Input fluid icon='user' iconPosition='left' placeholder='username' type='text' name='username' onChange={this.handleChange} />
-						Password:
+							<h3 style={{ backgroundColor: 'grey', color: 'black' }}>Password:</h3>
 						<Form.Input fluid icon='lock' iconPosition='left' placeholder='password' type='text' name='password' onChange={this.handleChange} />
-						Email:
+							<h3 style={{ backgroundColor: 'grey', color: 'black' }}>Email:</h3>
 						<Form.Input fluid icon='mail' iconPosition='left' placeholder='email' type='text' name='email' onChange={this.handleChange} />
-						<Button fluid size='large' type='submit'>Register</Button>
+						<Button fluid size='large' type='submit'>
+							<h3 style={{ borderRadius: '10px' }}>Register</h3>
+						</Button>
 						<Message>
-							Already A Member? <Link to='/login'>Login</Link>
+							<h3 style={{ backgroundColor: 'white', color: 'black' }}>Already A Member?</h3> <Link to='/login'><h4 style={{ fontSize: '25px'}}>Click here to Login</h4></Link>
 						</Message>
 						</Segment>
 					</Form>

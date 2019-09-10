@@ -14,10 +14,10 @@ const FavoritesList = (props) => {
 						    <div className="header">{favorite.name}</div>
 						    <div className="meta">{favorite.cuisines}</div>						
   						</div>
-  						<Button className="ui button" onClick={props.deleteFavorite.bind(null, favorite.id)} basic color='red'>
-            				Remove
-          				</Button>
 					</a>
+					<Button style={{ marginTop: '-20px', marginBottom: '10px' }} className="ui button" onClick={props.deleteFavorite.bind(null, favorite.id)} basic color='red'>
+            			Remove <strong>{favorite.name}</strong> from Favorites
+          			</Button>
 				</div>
 			</tr>
 		)

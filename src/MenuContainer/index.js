@@ -44,9 +44,8 @@ class MenuContainer extends Component {
 			const addFavoriteResponse = await addFavorite.json();
 			console.log(addFavoriteResponse, "Favorites DATA");
 			this.setState({
-				favorites: {...addFavoriteResponse.data}
+				favorites: [{...addFavoriteResponse.data}]
 			})
-			console.log(this.state.favorites);
 		} catch(err) {
 			console.log(err, 'addFavorite error');
 			return err
@@ -67,27 +66,6 @@ class MenuContainer extends Component {
 			console.log(this.state.data, 'this.state.data in handleCheckboxChange');
 			this.addFavorite()
 		})
-	}
-		
-
-	getFavorites = async () => {
-		try {
-			console.log(this.props, 'props in get');
-			const responseGetFavorites = await fetch('http://localhost:8000/api/v1/' + this.props.userInfo.id)
-
-			console.log(responseGetFavorites, 'responseGetFavorites');
-			const favoritesResponse = await responseGetFavorites.json();
-			console.log(await favoritesResponse, '<-favoritesResponse');
-			if(favoritesResponse.status.code !== 200) {
-				throw Error('404 from server')
-			}
-			this.setState({
-				favorites: favoritesResponse.data
-			})
-		} catch(err) {
-			console.log(err, 'err from getFavorites');
-			return err
-		}
 	}
 
 	componentDidMount() {

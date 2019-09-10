@@ -44,8 +44,30 @@ class Profile extends Component {
 		}
 	}
 
+	getFavorites = async () => {
+		console.log(this.state.favorites, 'favorites list in getFavorites');
+		console.log(this.props.userInfo.id, '<--userInfo.id in getFavorites');
+		try {
+			const responseGetFavorites = await fetch('http://localhost:8000/api/v1/' + this.props.userInfo.id)
+
+			// console.log(responseGetFavorites, 'responseGetFavorites');
+			const favoritesResponse = await responseGetFavorites.json();
+			console.log(await favoritesResponse, '<-favoritesResponse');
+			if(favoritesResponse.status.code !== 200) {
+				throw Error('404 from server')
+			}
+			this.setState({
+				favorites: favoritesResponse.data
+			})
+		} catch(err) {
+			console.log(err, 'err from getFavorites');
+			return err
+		}
+	}
+
 	componentDidMount() {
-		this.getMenu()
+		console.log(this.props.userInfo, 'userInfo in componentDidMount');
+		this.getFavorites();
 	}
 
 	handleSearchChange = (e) => {
@@ -54,17 +76,19 @@ class Profile extends Component {
 		})
 	}
 
-	handleCityChange = () => {
-		this.setState({
-			city: this.city.value
-		})
-	}
+	// handleCityChange = () => {
+	// 	this.setState({
+	// 		city: this.city.value
+	// 	})
+	// }
 
 	deleteFavorite = async (id) => {
+		// console.log(this.state.favorites, 'favorites id in deleteFavorite');
 		try {
-			const deleteFavorite = await fetch('http://localhost:8000/api/v1/' + this.state.favorites.id, {
+			const deleteFavorite = await fetch('http://localhost:8000/api/v1/' + id, {
 				method: "DELETE"
 			})
+			// console.log(deleteFavorite.status, 'deleteFavorite.status');
 			if(deleteFavorite.status !== 200) {
 				throw Error('An error occurred on delete')
 			}
@@ -85,16 +109,18 @@ class Profile extends Component {
 				<Grid.Row>
 					<Grid.Column width={5}>
 						<h3>Welcome {this.props.userInfo.username}!</h3>
+						<h5 style={{ fontSize: '30px', textAlign: 'center' }}>Click to view menu</h5>
 					</Grid.Column>
 					<Grid.Column width={5}>
 						<h3>Search Restaurants</h3>
 						<div class="ui action input">
-  							<input type="text" placeholder="" name='restaurant' onChange={this.handleSearchChange} />
+  							<input style={{ fontSize: '20px' }} type="text" placeholder="" name='restaurant' onChange={this.handleSearchChange} />
   							<button onClick={this.getMenu} type="submit" class="ui button"><h4>Search</h4></button>
 						</div>
 					</Grid.Column>
 					<Grid.Column width={5}>
 						<h3>Favorites</h3>
+						<h5 style={{ fontSize: '30px', textAlign: 'center' }}>Click to view menu</h5>
 						<FavoritesList favorites={this.state.favorites} deleteFavorite={this.deleteFavorite} />
 					</Grid.Column>
 				</Grid.Row>

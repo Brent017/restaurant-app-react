@@ -110,6 +110,7 @@ class Profile extends Component {
 					<Grid.Column width={5}>
 						<h3>Welcome {this.props.userInfo.username}!</h3>
 						<h5 style={{ fontSize: '30px', textAlign: 'center' }}>Click to view menu</h5>
+						<MenuContainer style={{ marginLeft: '5px' }} restaurants={this.state.restaurants} getFavorites={this.getFavorites} favorites={this.state.favorites} />
 					</Grid.Column>
 					<Grid.Column width={5}>
 						<h3>Search Restaurants</h3>
@@ -121,12 +122,12 @@ class Profile extends Component {
 					<Grid.Column width={5}>
 						<h3>Favorites</h3>
 						<h5 style={{ fontSize: '30px', textAlign: 'center' }}>Click to view menu</h5>
-						<FavoritesList favorites={this.state.favorites} deleteFavorite={this.deleteFavorite} />
+						<FavoritesList favorites={this.state.favorites} deleteFavorite={this.deleteFavorite} getFavorites={this.getFavorites}/>
 					</Grid.Column>
 				</Grid.Row>
 				<Grid.Row>
 					<Grid.Column style={{ marginLeft: '5px' }} width={5}>
-						<MenuContainer restaurants={this.state.restaurants} favorites={this.state.favorites} />
+						
 					</Grid.Column>
 					<Grid.Column width={10}>
 						

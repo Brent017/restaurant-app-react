@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 
 
 class MenuContainer extends Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 
 		this.state = {
 			restaurants: [],
@@ -25,9 +25,9 @@ class MenuContainer extends Component {
 		})
 	}
 
-	addFavorite = async () => {
+	addFavorite = async (props) => {
 		try {
-			console.log("TRY in POST route");
+			// console.log("TRY in POST route");
 			const addFavorite = await fetch('http://localhost:8000/api/v1/', {
 				method: "POST",
 				body: JSON.stringify(this.state.data),
@@ -36,20 +36,23 @@ class MenuContainer extends Component {
 					'Content-Type': 'application/json'
 				}
 			})
-			console.log(addFavorite, "addFavorite status before status");
+			// console.log(addFavorite, "addFavorite status before status");
 			if(addFavorite.status !==200) {
 				throw Error('404 from server')
 				console.log(addFavorite.status, 'addFavorite.status error');
 			}
 			const addFavoriteResponse = await addFavorite.json();
-			console.log(addFavoriteResponse, "Favorites DATA");
+			// console.log(addFavoriteResponse, "Favorites DATA");
 			this.setState({
 				favorites: [{...addFavoriteResponse.data}]
 			})
+			// console.log(this.props, "props in addFavorite");
+			this.props.getFavorites()
 		} catch(err) {
 			console.log(err, 'addFavorite error');
 			return err
 		}
+		
 	}
 
 	handleCheckboxChange = async (e) => {

@@ -42,20 +42,22 @@ class Login extends Component {
 	render() {
 		return (
 			<Grid className='login' textAlign='center' verticalAlign='middle'>
-				<Grid.Column style={{ maxWidth: 450}}>
+				<Grid.Column style={{ maxWidth: 450, backgroundColor: 'aquamarine'}}>
 					<Header className='title' textAlign='center'>
 						<img src='http://icons.iconarchive.com/icons/google/noto-emoji-food-drink/256/32447-fork-and-knife-icon.png' alt='fork and knife icon'/>
 						<h2>Menu Finder</h2>
 					</Header>
 					<Form onSubmit={this.handleSubmit} >
-						<Segment stacked>
-						Username:
+						<Segment style={{ backgroundColor: 'grey' }} stacked>
+							<h3 style={{ backgroundColor: 'grey' }}>Username</h3>
 						<Form.Input fluid icon='user' iconPosition='left' placeholder='username' type='text' name='username' onChange={this.handleChange} />
-						Password:
-						<Form.Input fluid icon='asterisk' iconPosition='left' placeholder='password' type='text' name='password' onChange={this.handleChange} />
-						<Button fluid size='large' type='submit'>Login</Button>
+							<h3 style={{ backgroundColor: 'grey' }}>Password</h3>
+						<Form.Input style={{ backgroundColor: 'black' }} fluid icon='asterisk' iconPosition='left' placeholder='password' type='text' name='password' onChange={this.handleChange} />
+						<Button style={{ backgroundColor: 'black' }} fluid size='large' type='submit'>
+							<h3 style={{ borderRadius: '10px', backgroundColor: 'black' }}>Login</h3>
+						</Button>
 						<Message>
-							Not registered? <Link to='/register'>Register Now!</Link>
+							<h3 style={{ backgroundColor: 'white', color: 'black' }}>Not registered?</h3> <Link to='/register'><h4 style={{ fontSize: '25px'}}>Click here to Register</h4></Link>
 						</Message>
 						</Segment>
 					</Form>

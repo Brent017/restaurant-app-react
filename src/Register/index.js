@@ -59,14 +59,14 @@ class Register extends Component {
 
 					<Form onSubmit={this.handleSubmit}>
 						<Segment style={{ backgroundColor: 'grey' }} stacked>
-							<h3 style={{ backgroundColor: 'grey', color: 'black' }}>Username:</h3>
+							<h3 style={{ backgroundColor: 'grey', color: 'black' }}>Username</h3>
 						<Form.Input fluid icon='user' iconPosition='left' placeholder='username' type='text' name='username' onChange={this.handleChange} />
-							<h3 style={{ backgroundColor: 'grey', color: 'black' }}>Password:</h3>
+							<h3 style={{ backgroundColor: 'grey', color: 'black' }}>Password</h3>
 						<Form.Input fluid icon='lock' iconPosition='left' placeholder='password' type='text' name='password' onChange={this.handleChange} />
-							<h3 style={{ backgroundColor: 'grey', color: 'black' }}>Email:</h3>
+							<h3 style={{ backgroundColor: 'grey', color: 'black' }}>Email</h3>
 						<Form.Input fluid icon='mail' iconPosition='left' placeholder='email' type='text' name='email' onChange={this.handleChange} />
-						<Button fluid size='large' type='submit'>
-							<h3 style={{ borderRadius: '10px' }}>Register</h3>
+						<Button  style={{ backgroundColor: 'black' }} fluid size='large' type='submit'>
+							<h3 style={{ borderRadius: '10px', backgroundColor: 'black' }}>Register</h3>
 						</Button>
 						<Message>
 							<h3 style={{ backgroundColor: 'white', color: 'black' }}>Already A Member?</h3> <Link to='/login'><h4 style={{ fontSize: '25px'}}>Click here to Login</h4></Link>

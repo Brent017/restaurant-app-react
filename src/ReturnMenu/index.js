@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 class ReturnMenu extends Component {
 	constructor(props) {
@@ -6,7 +6,7 @@ class ReturnMenu extends Component {
 
 		this.state= {
 			selectedUrl: '',
-			content: ''
+			content: []
 		}
 	}
 
@@ -31,7 +31,7 @@ class ReturnMenu extends Component {
 		.then(function (data) {
 			console.log(data, 'data');
 			this.setState({
-				content: data
+				content: [...data]
 			});
 		}.bind(this))
 		.catch(function (err) {

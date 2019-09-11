@@ -1,6 +1,5 @@
 import React from 'react';
-import { Form, Button, Label } from 'semantic-ui-react';
-import { Link } from 'react-router-dom';
+import { Button } from 'semantic-ui-react';
 
 const FavoritesList = (props) => {
 	console.log(props, 'props in FavoritesList');
@@ -9,7 +8,7 @@ const FavoritesList = (props) => {
 		return (
 			<tr key={favorite.id}>
 				<td>
-					<a className="ui card" href={favorite.menu_url} target="_blank">
+					<a className="ui card" href={favorite.menu_url} target="_blank" rel="noopener noreferrer">
   						<td style={{ backgroundColor: 'aquamarine' }} className="content">
 						    <td className="header">{favorite.name}</td>
 						    <td className="meta">{favorite.cuisines}</td>						

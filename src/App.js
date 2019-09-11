@@ -5,7 +5,8 @@ import Login from './Login';
 import Register from './Register';
 import Profile from './Profile';
 import Logout from './Logout';
-import './App.css'
+import ReturnMenu from './ReturnMenu';
+import './App.css';
 
 const my404 = () => {
   return (
@@ -94,6 +95,7 @@ class App extends Component {
           <Route exact path='/login' render={(props) => <Login {...props} logIn={this.logIn} />} />
           <Route exact path='/register' render={(props) => <Register {...props} register={this.register} />} />
           <Route exact path='/profile' render={(props) => <Profile {...props} userInfo={this.state}/> } />
+          <Route exact path='/menu' render={(props) => <ReturnMenu{...props} />} />
           <Route component={my404} />
         </Switch>
       </main>

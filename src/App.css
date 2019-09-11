@@ -4,7 +4,6 @@ h2 {
   background-color: #262626;
   color: white;
   font-size: 60px;
-
 }
 
 h3 {
@@ -37,5 +36,8 @@ img {
   background-color: none;
 }
 
+td {
+  margin: 0 auto;
+}
 
 

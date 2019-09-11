@@ -7,7 +7,6 @@ class MenuContainer extends Component {
 
 		this.state = {
 			restaurants: [],
-			isLoaded: false,
 			favorites: [],
 			data: {
 				id: '',
@@ -39,7 +38,6 @@ class MenuContainer extends Component {
 			// console.log(addFavorite, "addFavorite status before status");
 			if(addFavorite.status !==200) {
 				throw Error('404 from server')
-				console.log(addFavorite.status, 'addFavorite.status error');
 			}
 			const addFavoriteResponse = await addFavorite.json();
 			// console.log(addFavoriteResponse, "Favorites DATA");
@@ -73,28 +71,16 @@ class MenuContainer extends Component {
 
 	componentDidMount() {
 		this.setRestaurants();
-		this.setState({
-			isLoaded: true
-		})
-
 	}
 
 	render() {
-
-		let { isLoaded, restaurants } = this.state;
-		
-		// if(!isLoaded) {
-		// 	return<div>Loading...</div>;
-		// }
-
-		// else {
 		return (
 			<main>
 				
 				<tr>
 					{this.props.restaurants.map(restaurant => (
 					<div>
-						<a className="ui card" href={restaurant.restaurant.menu_url} target="_blank">
+						<a className="ui card" href={restaurant.restaurant.menu_url} target="_blank" rel="noopener noreferrer">
   							<div style={{ backgroundColor: 'aquamarine' }} className="content">
 							    <div className="header">{restaurant.restaurant.name}</div>
 							    <div className="meta">{restaurant.restaurant.cuisines}</div>
@@ -115,7 +101,6 @@ class MenuContainer extends Component {
 				</tr>
 			</main>
 			)
-		// }
 	}
 }
 

@@ -27,7 +27,7 @@ class MenuContainer extends Component {
 	addFavorite = async (props) => {
 		try {
 			// console.log("TRY in POST route");
-			const addFavorite = await fetch('http://localhost:8000/api/v1/', {
+			const addFavorite = await fetch(process.env.REACT_APP_BACKEND_URL + '/api/v1/', {
 				method: "POST",
 				body: JSON.stringify(this.state.data),
 				credentials: 'include',

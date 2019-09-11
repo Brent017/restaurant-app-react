@@ -49,7 +49,7 @@ class Profile extends Component {
 		console.log(this.state.favorites, 'favorites list in getFavorites');
 		console.log(this.props.userInfo.id, '<--userInfo.id in getFavorites');
 		try {
-			const responseGetFavorites = await fetch('http://localhost:8000/api/v1/' + this.props.userInfo.id)
+			const responseGetFavorites = await fetch(process.env.REACT_APP_BACKEND_URL + this.props.userInfo.id)
 
 			// console.log(responseGetFavorites, 'responseGetFavorites');
 			const favoritesResponse = await responseGetFavorites.json();
@@ -86,7 +86,7 @@ class Profile extends Component {
 	deleteFavorite = async (id) => {
 		// console.log(this.state.favorites, 'favorites id in deleteFavorite');
 		try {
-			const deleteFavorite = await fetch('http://localhost:8000/api/v1/' + id, {
+			const deleteFavorite = await fetch(process.env.REACT_APP_BACKEND_URL + id, {
 				method: "DELETE"
 			})
 			// console.log(deleteFavorite.status, 'deleteFavorite.status');

@@ -3,6 +3,7 @@ import { Grid } from 'semantic-ui-react';
 import MenuContainer from '../MenuContainer';
 // import CitySearch from '../CitySearch';
 import FavoritesList from '../FavoritesList';
+import ReturnMenu from '../ReturnMenu';
 
 class Profile extends Component {
 	constructor(props) {
@@ -110,7 +111,7 @@ class Profile extends Component {
 					<Grid.Column width={5}>
 						<h3>Welcome {this.props.userInfo.username}!</h3>
 						<h5 style={{ fontSize: '30px', textAlign: 'center' }}>Click to view menu</h5>
-						<MenuContainer style={{ marginLeft: '5px' }} restaurants={this.state.restaurants} getFavorites={this.getFavorites} favorites={this.state.favorites} />
+						<MenuContainer restaurants={this.state.restaurants} getFavorites={this.getFavorites} favorites={this.state.favorites} />
 					</Grid.Column>
 					<Grid.Column width={5}>
 						<h3>Search Restaurants</h3>
@@ -118,19 +119,12 @@ class Profile extends Component {
   							<input style={{ fontSize: '20px' }} type="text" placeholder="" name='restaurant' onChange={this.handleSearchChange} />
   							<button onClick={this.getMenu} type="submit" class="ui button"><h4>Search</h4></button>
 						</div>
+						<ReturnMenu />
 					</Grid.Column>
-					<Grid.Column width={5}>
+					<Grid.Column style={{ textAlign: 'center', margin: 'auto'}} width={5}>
 						<h3>Favorites</h3>
 						<h5 style={{ fontSize: '30px', textAlign: 'center' }}>Click to view menu</h5>
 						<FavoritesList favorites={this.state.favorites} deleteFavorite={this.deleteFavorite} getFavorites={this.getFavorites}/>
-					</Grid.Column>
-				</Grid.Row>
-				<Grid.Row>
-					<Grid.Column style={{ marginLeft: '5px' }} width={5}>
-						
-					</Grid.Column>
-					<Grid.Column width={10}>
-						
 					</Grid.Column>
 				</Grid.Row>
 			</Grid>

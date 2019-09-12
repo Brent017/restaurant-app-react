@@ -49,7 +49,7 @@ class Profile extends Component {
 		console.log(this.state.favorites, 'favorites list in getFavorites');
 		console.log(this.props.userInfo.id, '<--userInfo.id in getFavorites');
 		try {
-			const responseGetFavorites = await fetch(process.env.REACT_APP_BACKEND_URL + this.props.userInfo.id)
+			const responseGetFavorites = await fetch(process.env.REACT_APP_BACKEND_URL + '/api/v1/' + this.props.userInfo.id)
 
 			// console.log(responseGetFavorites, 'responseGetFavorites');
 			const favoritesResponse = await responseGetFavorites.json();
@@ -86,7 +86,7 @@ class Profile extends Component {
 	deleteFavorite = async (id) => {
 		// console.log(this.state.favorites, 'favorites id in deleteFavorite');
 		try {
-			const deleteFavorite = await fetch(process.env.REACT_APP_BACKEND_URL + id, {
+			const deleteFavorite = await fetch(process.env.REACT_APP_BACKEND_URL + '/api/v1/' + id, {
 				method: "DELETE"
 			})
 			// console.log(deleteFavorite.status, 'deleteFavorite.status');
@@ -113,7 +113,7 @@ class Profile extends Component {
 						<h5 style={{ fontSize: '30px', textAlign: 'center' }}>Click to view menu</h5>
 						<MenuContainer restaurants={this.state.restaurants} getFavorites={this.getFavorites} favorites={this.state.favorites} />
 					</Grid.Column>
-					<Grid.Column width={5}>
+					<Grid.Column class="column" width={6}>
 						<h3>Search Restaurants</h3>
 						<div class="ui action input">
   							<input style={{ fontSize: '20px' }} type="text" placeholder="" name='restaurant' onChange={this.handleSearchChange} />
@@ -121,7 +121,7 @@ class Profile extends Component {
 						</div>
 						<ReturnMenu />
 					</Grid.Column>
-					<Grid.Column style={{ textAlign: 'center', margin: 'auto'}} width={5}>
+					<Grid.Column width={5} style={{ textAlign: 'center'}}>
 						<h3>Favorites</h3>
 						<h5 style={{ fontSize: '30px', textAlign: 'center' }}>Click to view menu</h5>
 						<FavoritesList favorites={this.state.favorites} deleteFavorite={this.deleteFavorite} getFavorites={this.getFavorites}/>

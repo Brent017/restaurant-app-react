@@ -17,7 +17,7 @@ class Logout extends Component {
 			<Menu inverted>
 				<Menu.Item
 					
-					as={ Link } to='login'
+					as={ Link } to=''
 					name='logout'
 					active={activeItem === 'logout'}
 					onClick={this.handleItemClick}

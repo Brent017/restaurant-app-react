@@ -92,7 +92,7 @@ class App extends Component {
       <main>
         {this.state.isAuth ? <Logout logout={this.logout} isAuth={this.state.isAuth} /> : null}
         <Switch>
-          <Route exact path='/login' render={(props) => <Login {...props} logIn={this.logIn} />} />
+          <Route exact path='/' render={(props) => <Login {...props} logIn={this.logIn} />} />
           <Route exact path='/register' render={(props) => <Register {...props} register={this.register} />} />
           <Route exact path='/profile' render={(props) => <Profile {...props} userInfo={this.state}/> } />
           <Route exact path='/menu' render={(props) => <ReturnMenu{...props} />} />

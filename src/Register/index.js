@@ -69,7 +69,7 @@ class Register extends Component {
 							<h3 style={{ borderRadius: '10px', backgroundColor: 'black' }}>Register</h3>
 						</Button>
 						<Message>
-							<h3 style={{ backgroundColor: 'white', color: 'black' }}>Already A Member?</h3> <Link to='/login'><h4 style={{ fontSize: '25px'}}>Click here to Login</h4></Link>
+							<h3 style={{ backgroundColor: 'white', color: 'black' }}>Already A Member?</h3> <Link to='/'><h4 style={{ fontSize: '25px'}}>Click here to Login</h4></Link>
 						</Message>
 						</Segment>
 					</Form>
